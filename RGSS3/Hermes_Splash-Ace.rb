@@ -17,6 +17,11 @@
 SPLASH_IMG_LIST = "Splash screen 1,Splash screen 2"
 
 #==============================================================================
+# Enable/disable skip the splash screen pressing enter
+#==============================================================================
+CAN_SKIP = true
+
+#==============================================================================
 # How much opacity will be incremented per frame.
 #==============================================================================
 PACE = 5
@@ -73,7 +78,9 @@ class Scene_Splash < Scene_Base
   
   def update
 	super
-	Input.trigger?(Input::C) ? next_scene : nil
+	if CAN_SKIP
+      Input.trigger?(Input::C) ? next_scene : nil
+    end
 	
 	@sprites[@index].opacity += !@lessOpacity ? PACE : -PACE		
 	if @sprites[@index].opacity >= 255

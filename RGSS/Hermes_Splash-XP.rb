@@ -15,7 +15,12 @@
 # Not use space (' ') after the ',' to separate the images.
 # example: "imageone, image two, the third one"
 #==============================================================================
-SPLASH_IMG_LIST = "Splash screen 1,Splash screen 2"
+SPLASH_IMG_LIST = "Produção-TNS,TNS Wolf,Hermes Passer"
+
+#==============================================================================
+# Enable/disable skip the splash screen pressing enter
+#==============================================================================
+CAN_SKIP = true
 
 #==============================================================================
 # How much opacity will be incremented per frame.
@@ -50,7 +55,7 @@ class Scene_Splash
   end
   
   def create_splash
-	imgs = SPLASH_IMG_LIST.split(',')
+    imgs = SPLASH_IMG_LIST.split(',')
     @sprites = []
     imgs.each  do |img|
 		sprite = Sprite.new
@@ -69,8 +74,9 @@ class Scene_Splash
   end
   
   def update
-    Input.trigger?(Input::C) ? next_scene : nil
-    
+    if CAN_SKIP
+      Input.trigger?(Input::C) ? next_scene : nil
+    end
     @sprites[@index].opacity += !@lessOpacity ? PACE : -PACE; 
     if @sprites[@index].opacity >= 255
       @sprites[@index].opacity = 255;
