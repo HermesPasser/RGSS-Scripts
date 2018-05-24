@@ -27,6 +27,16 @@ CAN_SKIP = true
 PACE = 5
 
 #==============================================================================
+# Play the title music in splash screen
+#==============================================================================
+PLAY_TITLE_MUSIC_ON_SPLASH = true
+
+#==============================================================================
+# Disable title music in title screen
+#==============================================================================
+DISABLE_TITLE_MUSIC = false
+
+#==============================================================================
 # Rewrite method to the Scene_Splash be called first
 #==============================================================================
 module SceneManager
@@ -40,6 +50,9 @@ end
 #==============================================================================
 class Scene_Title < Scene_Base
   def play_title_music
+	unless DISABLE_TITLE_MUSIC
+		super
+	end
   end
 end
 
@@ -134,8 +147,10 @@ class Scene_Splash < Scene_Base
   # * Play Title Screen Music
   #--------------------------------------------------------------------------
   def play_title_music
-    $data_system.title_bgm.play
-    RPG::BGS.stop
-    RPG::ME.stop
+	if PLAY_TITLE_MUSIC_ON_SPLASH
+		$data_system.title_bgm.play
+		RPG::BGS.stop
+		RPG::ME.stop
+	end
   end
 end
