@@ -15,7 +15,7 @@
 # Not use space (' ') after the ',' to separate the images.
 # example: "imageone, image two, the third one"
 #==============================================================================
-SPLASH_IMG_LIST = "Produção-TNS,TNS Wolf,Hermes Passer"
+SPLASH_IMG_LIST = "image1,image2"
 
 #==============================================================================
 # Enable/disable skip the splash screen pressing enter
