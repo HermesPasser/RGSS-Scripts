@@ -1,4 +1,5 @@
-#RGSS Scripts
+# RGSS Scripts
 Scripts for the RPG Maker XP, VX and VX Ace
 
-See also Plugins for RPG Maker MV [here](https://github.com/HermesPasser/RMMV-Plugins).
+Explanation of each plugin: [here](https://hermespasser.github.io/p/rgss-scripts/)  
+See also RPG Maker MV Plugins: [here](https://github.com/HermesPasser/RMMV-Plugins).  
